@@ -1,5 +1,10 @@
 #include "Serialization.hpp"
 
+Serialization::Serialization() {}
+Serialization::Serialization(const Serialization& copy) {(void)copy;}
+Serialization& Serialization::operator=(const Serialization& other){(void)other; return (*this);}
+Serialization::~Serialization() {}
+
 
 uintptr_t Serialization::serialize(Data* ptr)
 {

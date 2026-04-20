@@ -19,6 +19,7 @@ Base* generate(void)
     else
         return (new C());
 }
+
 void identify(Base* p)
 {
     if (dynamic_cast<A*>(p) != NULL)
@@ -39,6 +40,7 @@ void identify(Base* p)
     else 
         return ;
 }
+
 void identify(Base& p)
 {
     try

@@ -16,4 +16,5 @@ int main(void)
     std::cout << "Value address: " << value << std::endl;
     std::cout << "Value->number: " << value->number << std::endl;    
     delete ptr;
+
 }

@@ -8,7 +8,7 @@ HEADER		:= Base.hpp A.hpp .B.hpp C.hpp
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

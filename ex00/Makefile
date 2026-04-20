@@ -1,14 +1,14 @@
 CXX			:= c++
 CXXFLAGS	:= -Wall -Werror -Wextra -std=c++98
 NAME		:= converter
-FILES		:= ScalarConverter.cpp main.cpp
+FILES		:= detection.cpp conversion.cpp ScalarConverter.cpp main.cpp
 OBJ			:= $(FILES:.cpp=.o)
 HEADER		:= ScalarConverter.hpp
 
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
