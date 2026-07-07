@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-bool is_int(const std::string& str)
+bool is_int(const std::string &str)
 {
     if (str.empty())
         return false;
@@ -18,7 +18,7 @@ bool is_int(const std::string& str)
     return true;
 }
 
-bool is_double(const std::string& str)
+bool is_double(const std::string &str)
 {
     if (str.empty())
         return false;
@@ -42,7 +42,7 @@ bool is_double(const std::string& str)
     return has_dot && has_digit;
 }
 
-bool is_float(const std::string& str)
+bool is_float(const std::string &str)
 {
     if (str.empty() || str[str.length() - 1] != 'f')
         return false;
@@ -50,11 +50,9 @@ bool is_float(const std::string& str)
     return is_double(str.substr(0, str.length() - 1));
 }
 
-Type detect_type(const std::string& str)
+Type detect_type(const std::string &str)
 {
-    if (!str.compare("-inf") || !str.compare("-inff")
-        || !str.compare("+inf") || !str.compare("+inff")
-        || !str.compare("nan") || !str.compare("nanf"))
+    if (!str.compare("-inf") || !str.compare("-inff") || !str.compare("+inf") || !str.compare("+inff") || !str.compare("nan") || !str.compare("nanf"))
         return (PSEUDO);
     else if (str.length() == 1 && !std::isdigit(str[0]))
         return (CHAR);
@@ -68,7 +66,7 @@ Type detect_type(const std::string& str)
         return (INVALID);
 }
 
-int detect_specials(std::string str)
+int print_specials(std::string str)
 {
     if (!str.compare("-inf") || !str.compare("-inff"))
     {
@@ -76,7 +74,7 @@ int detect_specials(std::string str)
         std::cout << "int: " << "Impossible" << std::endl;
         std::cout << "double: " << "-inf" << std::endl;
         std::cout << "float: " << "-inff" << std::endl;
-        return(1);
+        return (1);
     }
     else if (!str.compare("+inf") || !str.compare("+inff") || !str.compare("inf") || !str.compare("inff"))
     {
@@ -84,7 +82,7 @@ int detect_specials(std::string str)
         std::cout << "int: " << "Impossible" << std::endl;
         std::cout << "double: " << "+inf" << std::endl;
         std::cout << "float: " << "+inff" << std::endl;
-        return(1);
+        return (1);
     }
     else if (!str.compare("nan") || !str.compare("nanf"))
     {
@@ -92,7 +90,7 @@ int detect_specials(std::string str)
         std::cout << "int: " << "Impossible" << std::endl;
         std::cout << "double: " << "nan" << std::endl;
         std::cout << "float: " << "nanf" << std::endl;
-        return(1);
+        return (1);
     }
-    return(0);
+    return (0);
 }

@@ -18,7 +18,6 @@ double convert_to_double(const std::string &str)
 
     if (errno == ERANGE)
         throw std::overflow_error("double overflow");
-
     return value;
 }
 
@@ -65,7 +64,6 @@ void type_int(int value)
 
 void type_double(double value)
 {
-
     if (value < 0 || value > 127)
         std::cout << "char: Impossible" << std::endl;
     else if (!std::isprint(static_cast<char>(value)))
@@ -78,13 +76,16 @@ void type_double(double value)
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 
-    if (value == static_cast<int>(value))
+    if (value == std::floor(value))
     {
-        std::cout << "double: " << value << ".0" << std::endl;
-        std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << "double: " << value << std::endl;
+        std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
+        std::cout.unsetf(std::ios::fixed); 
     }
     else
     {
+        std::cout << std::setprecision(8);
         std::cout << "double: " << value << std::endl;
         std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
     }
@@ -106,10 +107,10 @@ void type_float(float value)
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 
-    if (value == static_cast<int>(value))
+    if (value == std::floor(value))
     {
-        std::cout << "double: " << d_val << ".0" << std::endl;
-        std::cout << "float: " << value << ".0f" << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "double: " << d_val << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "float: " << value << "f" << std::endl;
     }
     else
     {
