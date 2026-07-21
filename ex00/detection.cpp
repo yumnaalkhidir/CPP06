@@ -53,7 +53,7 @@ bool is_float(const std::string &str)
 Type detect_type(const std::string &str)
 {
     if (!str.compare("-inf") || !str.compare("-inff") || !str.compare("+inf") || !str.compare("+inff") || !str.compare("nan") || !str.compare("nanf"))
-        return (PSEUDO);
+        return (SPECIAL);
     else if (str.length() == 1 && !std::isdigit(str[0]))
         return (CHAR);
     else if (is_int(str))
@@ -66,31 +66,4 @@ Type detect_type(const std::string &str)
         return (INVALID);
 }
 
-int print_specials(std::string str)
-{
-    if (!str.compare("-inf") || !str.compare("-inff"))
-    {
-        std::cout << "char: " << "Impossible" << std::endl;
-        std::cout << "int: " << "Impossible" << std::endl;
-        std::cout << "double: " << "-inf" << std::endl;
-        std::cout << "float: " << "-inff" << std::endl;
-        return (1);
-    }
-    else if (!str.compare("+inf") || !str.compare("+inff") || !str.compare("inf") || !str.compare("inff"))
-    {
-        std::cout << "char: " << "Impossible" << std::endl;
-        std::cout << "int: " << "Impossible" << std::endl;
-        std::cout << "double: " << "+inf" << std::endl;
-        std::cout << "float: " << "+inff" << std::endl;
-        return (1);
-    }
-    else if (!str.compare("nan") || !str.compare("nanf"))
-    {
-        std::cout << "char: " << "Impossible" << std::endl;
-        std::cout << "int: " << "Impossible" << std::endl;
-        std::cout << "double: " << "nan" << std::endl;
-        std::cout << "float: " << "nanf" << std::endl;
-        return (1);
-    }
-    return (0);
-}
+

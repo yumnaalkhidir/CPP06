@@ -11,7 +11,6 @@ Base::~Base(){}
 Base* generate(void)
 {
     int num = rand() % 3;
-    std::cout << " num is: " << num << std::endl;
     if (num == 0)
         return (new A());
     else if (num == 1)
@@ -49,7 +48,7 @@ void identify(Base& p)
         std::cout << "A" << std::endl;
         return ;
     }
-    catch (std::exception &e){}
+    catch (std::bad_cast &e){}
 
     try
     {
@@ -57,7 +56,7 @@ void identify(Base& p)
         std::cout << "B" << std::endl;
         return ;
     }
-    catch (std::exception &e){}
+    catch (std::bad_cast &e){}
 
     try
     {
@@ -65,5 +64,5 @@ void identify(Base& p)
         std::cout << "C" << std::endl;
         return ;
     }
-    catch (std::exception &e){}
+    catch (std::bad_cast &e){}
 }
