@@ -29,7 +29,7 @@ float convert_to_float(const std::string &str)
     char *end;
     double value = std::strtod(str.c_str(), &end);
 
-    if (errno == ERANGE || std::isinf(value))
+    if (errno == ERANGE)
         throw std::overflow_error("float overflow");
     if (value > FLT_MAX || value < -FLT_MAX)
         throw std::overflow_error("float overflow");

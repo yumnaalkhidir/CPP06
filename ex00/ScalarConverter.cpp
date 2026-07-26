@@ -11,17 +11,17 @@ ScalarConverter::~ScalarConverter() {}
 
 void printImpossible()
 {
-    std::cout << "char: " << "Impossible" << std::endl;
-    std::cout << "int: " << "Impossible" << std::endl;
-    std::cout << "float: " << "Impossible" << std::endl;
-    std::cout << "double: " << "Impossible" << std::endl;
+    std::cout << "char: " << "impossible" << std::endl;
+    std::cout << "int: " << "impossible" << std::endl;
+    std::cout << "float: " << "impossible" << std::endl;
+    std::cout << "double: " << "impossible" << std::endl;
 }
 
 void printAll(double value)
 {
     // ---- char ----
     if (std::isnan(value) || std::isinf(value) || value < 0 || value > 127)
-        std::cout << "char: Impossible" << std::endl;
+        std::cout << "char: impossible" << std::endl;
     else
     {
         char c = static_cast<char>(value);
@@ -32,9 +32,8 @@ void printAll(double value)
     }
 
     // ---- int ----
-    if (std::isnan(value) || std::isinf(value)
-        || value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX))
-        std::cout << "int: Impossible" << std::endl;
+    if (std::isnan(value) || std::isinf(value) || value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX))
+        std::cout << "int: impossible" << std::endl;
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 
@@ -74,7 +73,7 @@ void ScalarConverter::convert(const std::string str)
     {
     case SPECIAL:
     {
-        printAll(std::strtod(str.c_str(), 0));   // strtod parses "nan"/"-inf"/etc. directly
+        printAll(std::strtod(str.c_str(), 0)); // strtod parses "nan"/"-inf"/etc. directly
         break;
     }
     case CHAR:
@@ -96,7 +95,7 @@ void ScalarConverter::convert(const std::string str)
             {
                 printAll(convert_to_double(str));
             }
-            catch(std::exception &e2)
+            catch (std::exception &e2)
             {
                 printImpossible();
             }
@@ -116,7 +115,7 @@ void ScalarConverter::convert(const std::string str)
             {
                 printAll(convert_to_double(str));
             }
-            catch(std::exception &e2)
+            catch (std::exception &e2)
             {
                 printImpossible();
             }

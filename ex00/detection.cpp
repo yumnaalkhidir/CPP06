@@ -65,5 +65,3 @@ Type detect_type(const std::string &str)
     else
         return (INVALID);
 }
-
-
