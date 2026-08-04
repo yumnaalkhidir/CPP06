@@ -32,7 +32,7 @@ void printAll(double value)
     }
 
     // ---- int ----
-    if (std::isnan(value) || std::isinf(value) || value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX))
+    if (std::isnan(value) || std::isinf(value) || value < INT_MIN || value > INT_MAX)
         std::cout << "int: impossible" << std::endl;
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
