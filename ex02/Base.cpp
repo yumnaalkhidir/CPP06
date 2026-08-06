@@ -1,10 +1,7 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include <exception>
-#include <iostream>
 #include "Base.hpp"
-#include <cstdlib>
 
 Base::~Base(){}
 
@@ -48,7 +45,7 @@ void identify(Base& p)
         std::cout << "A" << std::endl;
         return ;
     }
-    catch (std::bad_cast &e){}
+    catch (...){}
 
     try
     {
@@ -56,7 +53,7 @@ void identify(Base& p)
         std::cout << "B" << std::endl;
         return ;
     }
-    catch (std::bad_cast &e){}
+    catch (...){}
 
     try
     {
@@ -64,5 +61,5 @@ void identify(Base& p)
         std::cout << "C" << std::endl;
         return ;
     }
-    catch (std::bad_cast &e){}
+    catch (...){}
 }
