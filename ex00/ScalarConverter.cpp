@@ -73,7 +73,7 @@ void ScalarConverter::convert(const std::string str)
     {
     case SPECIAL:
     {
-        printAll(std::strtod(str.c_str(), 0)); // strtod parses "nan"/"-inf"/etc. directly
+        printAll(std::strtod(str.c_str(), 0));
         break;
     }
     case CHAR:

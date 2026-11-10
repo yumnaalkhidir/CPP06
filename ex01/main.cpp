@@ -9,7 +9,7 @@ int main(void)
     std::cout << "Data->number: " << ptr->number << std::endl;
 
     uintptr_t data_int = Serialization::serialize(ptr);
-    std::cout << data_int << std::endl;
+
     if (data_int == reinterpret_cast<uintptr_t>(ptr))
         std::cout << "same" << std::endl;
     Serialization::Data *value = Serialization::deserialize(data_int);
